@@ -42,6 +42,9 @@ const secondsDisplayTextElement = document.querySelector(".seconds")
 const resetButton = document.querySelector(".reset")
 const alertMensage = document.querySelector("span")
 const date = document.querySelector("#date")
+const todayTimeToString = new Date().toISOString()
+const setMinTime = todayTimeToString.substring(0, todayTimeToString.length - 8)
+date.setAttribute("min", setMinTime)
 // const countdown = new Countdown(secondsDisplayTextElement, alertMensage)
 
 // startButton.addEventListener("click", () => {

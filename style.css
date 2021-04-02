@@ -13,14 +13,14 @@ body {
 }
 header {
   padding-top: 3rem;
-  height: 4.7rem;
+  height: 4.5rem;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 main {
-  height: 550px;
+  height: 490px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,6 +53,9 @@ input {
   padding: 0.6rem;
   outline: none;
   cursor: pointer;
+}
+#date {
+  width: 14rem;
 }
 ::-webkit-calendar-picker-indicator {
   filter: invert(100%) sepia(54%) saturate(465%) hue-rotate(348deg)
@@ -100,7 +103,13 @@ button:hover {
   opacity: 0.8;
   cursor: pointer;
 }
+a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 footer {
+  padding: 1rem;
   width: 100%;
   text-align: center;
   font-weight: 200;
