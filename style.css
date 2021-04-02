@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: "Recursive", sans-serif;
 }
+html {
+  font-size: 87.5%;
+}
 body {
   background-color: #85c1e9;
   color: #f2f2ed;
@@ -105,6 +108,9 @@ footer {
 }
 
 @media (min-width: 850px) {
+  html {
+    font-size: 100%;
+  }
   h1 {
     font-size: 4rem;
     font-weight: 900;
