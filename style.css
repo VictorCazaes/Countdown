@@ -64,15 +64,19 @@ input {
 }
 .days-box {
   border-bottom: 2px solid #f2f2ed;
+  border-radius: 0.4rem;
 }
 .hours-box {
   border-bottom: 2px solid #f2f2ed;
+  border-radius: 0.4rem;
 }
 .minutes-box {
   border-bottom: 2px solid #f2f2ed;
+  border-radius: 0.4rem;
 }
 .seconds-box {
   border-bottom: 2px solid #f2f2ed;
+  border-radius: 0.4rem;
 }
 .reset-wrap {
   display: flex;
