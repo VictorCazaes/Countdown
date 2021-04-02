@@ -1,58 +1,55 @@
-//input countdown
-class Countdown {
-    constructor(secondsDisplayTextElement, alertMensage) {
-        this.secondsDisplayTextElement = secondsDisplayTextElement;
-        this.alertMensage = alertMensage;
-        this.reset()
-    }
+// //input countdown
+// class Countdown {
+//     constructor(secondsDisplayTextElement, alertMensage) {
+//         this.secondsDisplayTextElement = secondsDisplayTextElement;
+//         this.alertMensage = alertMensage;
+//         this.reset()
+//     }
 
-    reset() {
-        this.secondCounter = 0
-        clearInterval(this.myInterval)
-    }
+//     reset() {
+//         this.secondCounter = 0
+//         clearInterval(this.myInterval)
+//     }
 
-    secondsInterval(seconds) {
-        let i = seconds
-        if (i > 59 || i < 0) {
-            console.log("Use a number between 0s - 59s")
-            this.alertMensage.innerText = "Use a number between 0s - 59s"
-        } else {
-            this.myInterval = setInterval(() => {
-                this.secondCounter = i
-                i -= 1
-                this.updateDisplay()
-                console.log(this.secondCounter)
-                if (i < 0) {
-                    console.log("zero right here")
-                    clearInterval(this.myInterval)
-                }
-            }, 1000)//1s
-        }
-    }
+//     secondsInterval(seconds) {
+//         let i = seconds
+//         if (i > 59 || i < 0) {
+//             this.alertMensage.innerText = "Use a number between 0s - 59s"
+//         } else {
+//             this.myInterval = setInterval(() => {
+//                 this.secondCounter = i
+//                 i -= 1
+//                 this.updateDisplay()
+//                 console.log(this.secondCounter)
+//                 if (i < 0) {
+//                     clearInterval(this.myInterval)
+//                 }
+//             }, 1000)//1s
+//         }
+//     }
 
-    updateDisplay() {
-        this.secondsDisplayTextElement.value = this.secondCounter;
-        this.alertMensage.innerText = ""
-    }
-}
+//     updateDisplay() {
+//         this.secondsDisplayTextElement.value = this.secondCounter;
+//         this.alertMensage.innerText = ""
+//     }
+// }
 
 const daysDisplayTextElement = document.querySelector(".days")
 const hoursDisplayTextElement = document.querySelector(".hours")
 const minutesDisplayTextElement = document.querySelector(".minutes")
 const secondsDisplayTextElement = document.querySelector(".seconds")
-const startButton = document.querySelector(".start")
+// const startButton = document.querySelector(".start")
 const resetButton = document.querySelector(".reset")
 const alertMensage = document.querySelector("span")
 const date = document.querySelector("#date")
-const countdown = new Countdown(secondsDisplayTextElement, alertMensage)
+// const countdown = new Countdown(secondsDisplayTextElement, alertMensage)
 
-startButton.addEventListener("click", () => {
-    countdown.secondsInterval(secondsDisplayTextElement.value)
-})
+// startButton.addEventListener("click", () => {
+//     countdown.secondsInterval(secondsDisplayTextElement.value)
+// })
 
 resetButton.addEventListener("click", () => {
-    countdown.reset()
-    countdown.updateDisplay()
+    date.value = null
 })
 
 
@@ -63,26 +60,36 @@ const countDownInterval = setInterval(() => {
     const seconds = (date.valueAsNumber - timeInMilisenconds) / 1000//convert from milisecond to second
     const day = Math.floor(seconds / 86400) //convert seconds to days
     if (isNaN(day) || day == 0) {
-        daysDisplayTextElement.value = "000"
+        daysDisplayTextElement.innerText = "000"
+    } else if (day < 100) {
+        daysDisplayTextElement.innerText = `0${day}`
+    } else if (day < 10) {
+        daysDisplayTextElement.innerText = `00${day}`
     } else {
-        daysDisplayTextElement.value = day
+        daysDisplayTextElement.innerText = `${day}`
     }
     const hour = Math.floor((seconds % 86400) / 3600)
     if (isNaN(hour) || hour == 0) {
-        hoursDisplayTextElement.value = "00"
+        hoursDisplayTextElement.innerText = "00"
+    } else if (hour < 10) {
+        hoursDisplayTextElement.innerText = `0${hour}`
     } else {
-        hoursDisplayTextElement.value = hour
+        hoursDisplayTextElement.innerText = `${hour}`
     }
     const minute = Math.floor(((seconds % 86400) % 3600) / 60)
     if (isNaN(minute) || minute == 0) {
-        minutesDisplayTextElement.value = "00"
+        minutesDisplayTextElement.innerText = "00"
+    } else if (minute < 10) {
+        minutesDisplayTextElement.innerText = `0${minute}`
     } else {
-        minutesDisplayTextElement.value = minute
+        minutesDisplayTextElement.innerText = `${minute}`
     }
     const timeInSeconds = ((seconds % 86400) % 3600) % 60
     if (isNaN(timeInSeconds) || timeInSeconds == 0) {
-        secondsDisplayTextElement.value = "00"
+        secondsDisplayTextElement.innerText = "00"
+    } else if (timeInSeconds < 10) {
+        secondsDisplayTextElement.innerText = `0${timeInSeconds}`
     } else {
-        secondsDisplayTextElement.value = timeInSeconds
+        secondsDisplayTextElement.innerText = `${timeInSeconds}`
     }
-}, 1000);
+}, 1000);//1s

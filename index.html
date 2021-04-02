@@ -5,21 +5,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Countdown</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <div>
-        <input class="days" type="text" readonly>
-        <input class="hours" type="text" readonly>
-        <input class="minutes" type="text" readonly>
-        <input class="seconds" type="text" readonly>
-        <button class="start">Start</button>
-        <button class="reset">Reset</button>
-    </div>
-    <span></span>
-    <input type="date" name="date" id="date"">
+    <header>
+        <h1>Countdown</h1>
+    </header>
+    <main>
+        <div class="countdown-wrap">
+            <div class="date-input">
+                <input type="date" name="date" id="date">
+            </div>
+            <div class="display">
+                <div class="days-box">
+                    <h3>Days</h3>
+                    <h1 class="days"></h1>
+                </div>
+                <h1>:</h1>
+                <div class="hours-box">
+                    <h3>Hours</h3>
+                    <h1 class="hours"></h1>
+                </div>
+                <h1>:</h1>
+                <div class="minutes-box">
+                    <h3>Minutes</h3>
+                    <h1 class="minutes"></h1>
+                </div>
+                <h1>:</h1>
+                <div class="seconds-box">
+                    <h3>Seconds</h3>
+                    <h1 class="seconds"></h1>
+                </div>
+            </div>
+            <div class="reset-wrap">
+                <button class="reset">Reset</button>
+            </div>
+        </div>
+    </main>
+    <footer>A countdown using Javascript, HTML and CSS</footer>
 </body>
 <script src=" script.js"></script>
 
