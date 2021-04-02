@@ -58,40 +58,31 @@ resetButton.addEventListener("click", () => {
 
 // date countdown
 const countDownInterval = setInterval(() => {
-    let today = new Date();
-    let timeInMilisenconds = Date.parse(today)//convert date to miliseconds
-    let seconds = (date.valueAsNumber - timeInMilisenconds) / 1000//convert from milisecond to second
+    const today = new Date();
+    const timeInMilisenconds = Date.parse(today)//convert date to miliseconds
+    const seconds = (date.valueAsNumber - timeInMilisenconds) / 1000//convert from milisecond to second
     const day = Math.floor(seconds / 86400) //convert seconds to days
-    daysDisplayTextElement.value = day
+    if (isNaN(day) || day == 0) {
+        daysDisplayTextElement.value = "000"
+    } else {
+        daysDisplayTextElement.value = day
+    }
     const hour = Math.floor((seconds % 86400) / 3600)
-    hoursDisplayTextElement.value = hour
+    if (isNaN(hour) || hour == 0) {
+        hoursDisplayTextElement.value = "00"
+    } else {
+        hoursDisplayTextElement.value = hour
+    }
     const minute = Math.floor(((seconds % 86400) % 3600) / 60)
-    minutesDisplayTextElement.value = minute
+    if (isNaN(minute) || minute == 0) {
+        minutesDisplayTextElement.value = "00"
+    } else {
+        minutesDisplayTextElement.value = minute
+    }
     const timeInSeconds = ((seconds % 86400) % 3600) % 60
-    secondsDisplayTextElement.value = timeInSeconds
+    if (isNaN(timeInSeconds) || timeInSeconds == 0) {
+        secondsDisplayTextElement.value = "00"
+    } else {
+        secondsDisplayTextElement.value = timeInSeconds
+    }
 }, 1000);
-
-
-// let d = new Date();
-// let nova = Date.parse(d)
-// console.log(nova)
-
-// let seconds = (date.valueAsNumber - nova) / 1000//convert from milisecond to second
-
-// console.log("time total in seconds " + seconds)
-// const day = Math.floor(seconds / 86400) //convert seconds to days
-// console.log("time in days " + day)
-// const hour = Math.floor((seconds % 86400) / 3600)
-// console.log("time in hours " + hour)
-// const minute = Math.floor(((seconds % 86400) % 3600) / 60)
-// console.log("time in minutes " + minute)
-// const timeInSeconds = ((seconds % 86400) % 3600) % 60
-// secondsDisplayTextElement.value = timeInSeconds
-// console.log("time in seconds " + timeInSeconds)
-
-// const day = Math.floor(result / 24)
-// console.log(day)//convert from hour to day
-// const hourLeft = result % 24
-// console.log(hourLeft)
-// console.log(result * 60)//convert from hour to minute
-// console.log(result * 60 * 60)//convert from minute to second
