@@ -27,7 +27,6 @@ const countDownInterval = setInterval(() => {
     const today = new Date();
     let newDateString = date.value.replace("T", " ").replace(/-/g, "/")
     const seconds = Math.abs(new Date(newDateString) - today) / 1000 //convert from milisecond to second
-    console.log(seconds)
     if (seconds < 0) {
         date.value = null
         return;
