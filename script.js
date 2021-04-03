@@ -16,17 +16,18 @@ resetButton.addEventListener("click", () => {
 function setFormat(display, number) {
     if (isNaN(number) || number == 0) {
         display.innerText = "00"
-    } else if (number < 10) {
-        display.innerText = `0${number}`
+    } else if (number <= 9) {
+        display.innerText = `0${Number(number).toFixed(0)}`
     } else {
-        display.innerText = number
+        display.innerText = Number(number).toFixed(0)
     }
 }
 
 const countDownInterval = setInterval(() => {
     const today = new Date();
-    const timeInMilisenconds = Date.parse(today)//convert date to miliseconds
-    const seconds = (date.valueAsNumber - timeInMilisenconds) / 1000//convert from milisecond to second
+    let newDateString = date.value.replace("T", " ").replace(/-/g, "/")
+    const seconds = Math.abs(new Date(newDateString) - today) / 1000 //convert from milisecond to second
+    console.log(seconds)
     if (seconds < 0) {
         date.value = null
         return;
@@ -36,7 +37,7 @@ const countDownInterval = setInterval(() => {
     const hour = Math.floor((seconds % 86400) / 3600)
     setFormat(hoursDisplayTextElement, hour)
     const minute = Math.floor(((seconds % 86400) % 3600) / 60)
-    setFormat(minutesDisplayTextElement, hour)
+    setFormat(minutesDisplayTextElement, minute)
     const timeInSeconds = ((seconds % 86400) % 3600) % 60
     setFormat(secondsDisplayTextElement, timeInSeconds)
 }, 1000);//1s
