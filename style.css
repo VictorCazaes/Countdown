@@ -55,7 +55,7 @@ input {
   cursor: pointer;
 }
 #date {
-  width: 14rem;
+  width: 16rem;
 }
 ::-webkit-calendar-picker-indicator {
   filter: invert(100%) sepia(54%) saturate(465%) hue-rotate(348deg)
