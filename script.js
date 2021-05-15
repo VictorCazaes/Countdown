@@ -15,6 +15,11 @@ date.addEventListener("change", () => {
     localStorage.setItem("expectedDate", expectedDate);
 });
 
+resetButton.addEventListener("click", () => {
+    date.value = null;
+    localStorage.clear();
+});
+
 window.addEventListener("load", () => {
     expectedDate = localStorage.getItem("expectedDate");
     date.value = expectedDate;
@@ -35,7 +40,7 @@ setInterval(() => {
     let newDateString = date.value.replace("T", " ").replace(/-/g, "/");
     const seconds = (new Date(newDateString) - today) / 1000; //convert from milisecond to second
     if (seconds < 0) {
-        date.value = "";
+        date.value = null;
         if (localStorage.getItem("expectedDate")) {
             new Notification("It's time!🔔", {
                 body: "there is no more time to wait."
@@ -53,8 +58,3 @@ setInterval(() => {
     const timeInSeconds = Math.floor(((seconds % 86400) % 3600) % 60);
     setFormat(secondsDisplayTextElement, timeInSeconds);
 }, 1000);//1s
-
-resetButton.addEventListener("click", () => {
-    date.value = "";
-    localStorage.clear();
-});
