@@ -30,7 +30,7 @@ function setFormat(display, number) {
     }
 };
 
-const countDownInterval = setInterval(() => {
+setInterval(() => {
     const today = new Date();
     let newDateString = date.value.replace("T", " ").replace(/-/g, "/");
     const seconds = (new Date(newDateString) - today) / 1000; //convert from milisecond to second
@@ -42,7 +42,6 @@ const countDownInterval = setInterval(() => {
             })
         }
         localStorage.clear();
-        clearInterval(countDownInterval)
         return;
     }
     const day = Math.floor(seconds / 86400); //convert seconds to days
